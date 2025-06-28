@@ -1,0 +1,377 @@
+  <!DOCTYPE html>
+  <html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>给我最爱的诗雨</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#FF6B8B',
+              secondary: '#FFB6C1',
+              accent: '#FFD700',
+              dark: '#333333',
+            },
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+          },
+        }
+      }
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .text-shadow {
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+        .bg-blur {
+          backdrop-filter: blur(8px);
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      }
+
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+        100% { transform: translateY(0px); }
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-br from-pink-50 to-rose-100 min-h-screen font-sans text-dark">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300">
+      <div class="container mx-auto px-4 py-3 flex justify-between items-center bg-white/70 bg-blur rounded-b-xl shadow-md">
+        <div class="text-primary font-bold text-xl md:text-2xl">黄诗雨 <span class="text-secondary">❤</span> 严飞</div>
+        <div class="flex space-x-4">
+          <button id="nav-home" class="nav-btn px-3 py-1 rounded-full hover:bg-primary/20 transition-all">首页</button>
+          <button id="nav-food" class="nav-btn px-3 py-1 rounded-full hover:bg-primary/20 transition-all">美食相册</button>
+          <button id="nav-photo" class="nav-btn px-3 py-1 rounded-full hover:bg-primary/20 transition-all">生活相册</button>
+          <button id="nav-video" class="nav-btn px-3 py-1 rounded-full hover:bg-primary/20 transition-all">向老婆大人道歉</button>
+          <button id="nav-letter" class="nav-btn px-3 py-1 rounded-full hover:bg-primary/20 transition-all">给黄诗雨的信</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 页面容器 -->
+    <div class="container mx-auto px-4 pt-24 pb-16">
+      <!-- 首页 -->
+      <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center">
+        <div class="relative w-64 h-64 md:w-80 md:h-80 mb-8">
+          <div class="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-full blur-2xl opacity-50 animate-float"></div>
+          <div class="relative w-full h-full rounded-full overflow-hidden border-4 border-white shadow-xl">
+            <img src="./you.jpg" alt="黄诗雨的照片" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold text-primary mb-4 text-shadow">亲爱的诗雨</h1>
+        <p class="text-[clamp(1.2rem,3vw,1.8rem)] text-secondary mb-8 max-w-2xl mx-auto">这是专属于我们的回忆空间</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#food" class="btn bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+            <i class="fa fa-cutlery mr-2"></i>美食相册
+          </a>
+          <a href="#photo" class="btn bg-secondary hover:bg-secondary/90 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+            <i class="fa fa-camera mr-2"></i>生活相册
+          </a>
+          <a href="#video" class="btn bg-pink-400 hover:bg-pink-500 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+            <i class="fa fa-film mr-2"></i>向老婆大人道歉
+          </a>
+          <a href="#letter" class="btn bg-rose-500 hover:bg-rose-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+            <i class="fa fa-heart mr-2"></i>给黄诗雨的信
+          </a>
+        </div>
+        <div class="mt-16 animate-bounce">
+          <a href="#food" class="text-primary/70 hover:text-primary">
+            <i class="fa fa-angle-down text-3xl"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- 美食相册 -->
+      <section id="food" class="min-h-screen py-16">
+        <div class="text-center mb-12">
+          <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-primary mb-4">美食相册</h2>
+          <p class="text-lg text-secondary max-w-2xl mx-auto">记录你品尝过的每一道美味</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 美食照片将通过JavaScript动态加载 -->
+        </div>
+      </section>
+
+      <!-- 生活相册 -->
+      <section id="photo" class="min-h-screen py-16">
+        <div class="text-center mb-12">
+          <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-primary mb-4">生活相册</h2>
+          <p class="text-lg text-secondary max-w-2xl mx-auto">记录你生活中的每一个精彩瞬间</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- 生活照片将通过JavaScript动态加载 -->
+        </div>
+      </section>
+
+      <!-- 童年回忆 -->
+      <section id="video" class="min-h-screen py-16">
+        <div class="text-center mb-12">
+          <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-primary mb-4">宝宝我错了</h2>
+          <p class="text-lg text-secondary max-w-2xl mx-auto">宝宝我错了</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="aspect-video bg-gray-100 flex items-center justify-center">
+              <video id="childhood-video" class="w-full h-full object-cover" controls poster="./images/kk.jpg">
+                <source src="./images/class/2.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-primary mb-2">宝宝我错了原谅我好不好！！！</h3>
+              <p class="text-gray-600">最最最最最可爱最最最最美丽最最最最大方最最最最最喜欢我的黄诗雨老婆宝宝主人大人</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 给诗雨的信 -->
+      <section id="letter" class="min-h-screen py-16">
+        <div class="text-center mb-12">
+          <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-primary mb-4">给诗雨的信</h2>
+          <p class="text-lg text-secondary max-w-2xl mx-auto">严飞 字</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          <div class="bg-white/80 bg-blur rounded-2xl shadow-xl p-8 md:p-12 relative">
+            <div class="absolute -top-6 -right-6 text-6xl text-primary/20 transform rotate-12">
+              <i class="fa fa-heart"></i>
+            </div>
+            <div class="absolute -bottom-6 -left-6 text-6xl text-primary/20 transform -rotate-12">
+              <i class="fa fa-heart"></i>
+            </div>
+
+            <div class="prose prose-lg max-w-none">
+              <p class="text-lg text-primary">亲爱的诗雨：</p>
+
+              <p class="mt-6">见字如面。</p>
+
+              <p class="mt-4">当我决定为你创建这个网站时，脑海中不断浮现出我们相处的点点滴滴。从最初的相遇，到如今的相知相爱，每一刻都值得我用心去珍藏。</p>
+
+              <p class="mt-4">记得第一次见到你的时候，阳光洒在你身上，你笑着和我打招呼，那一刻，我的世界仿佛都明亮了起来。你的笑容，你的温柔，你的一切，都让我深深着迷。</p>
+
+              <p class="mt-4">和你在一起的日子总是过得很快，我们一起品尝美食，一起旅行，一起经历生活中的喜怒哀乐。每一次和你分享快乐，快乐都会加倍；每一次和你分担痛苦，痛苦都会减半。</p>
+
+              <p class="mt-4">你是一个热爱生活的人，总是能发现生活中的美好。你拍摄的每一张照片，都记录着生活中的精彩瞬间；你制作的每一道美食，都充满了对生活的热爱。这些都是我最珍贵的宝藏。</p>
+
+              <p class="mt-4">看着你小时候的视频，我仿佛能看到你成长的轨迹。从一个可爱的小女孩，到如今美丽动人的你，每一步都充满了故事。我很遗憾没有参与你的过去，但我会用我的余生去陪伴你，创造属于我们的未来。</p>
+
+              <p class="mt-4">诗雨，我爱你。爱你的笑容，爱你的善良，爱你的一切。无论是顺境还是逆境，无论是快乐还是悲伤，我都会一直陪伴在你身边。</p>
+
+              <p class="mt-4">愿我们的爱情像春天的花朵一样绽放，像夏天的阳光一样温暖，像秋天的果实一样丰硕，像冬天的炉火一样温暖。愿我们携手走过每一个春夏秋冬，直到永远。</p>
+
+              <p class="mt-6 text-right">永远爱你的严飞</p>
+              <p class="text-right">2025年6月28日</p>
+            </div>
+
+            <div class="mt-12 text-center">
+              <div class="inline-block p-4 bg-primary/10 rounded-full">
+                <span class="text-primary font-bold text-xl">严飞 ❤ 黄诗雨</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-white/70 bg-blur py-6">
+      <div class="container mx-auto px-4 text-center">
+        <p class="text-primary">&copy; 2025 严飞 ❤ 黄诗雨 - 永远爱你</p>
+        <div class="mt-4 flex justify-center space-x-4">
+          <a href="#home" class="text-primary/70 hover:text-primary">
+            <i class="fa fa-home"></i>
+          </a>
+          <a href="#food" class="text-primary/70 hover:text-primary">
+            <i class="fa fa-cutlery"></i>
+          </a>
+          <a href="#photo" class="text-primary/70 hover:text-primary">
+            <i class="fa fa-camera"></i>
+          </a>
+          <a href="#video" class="text-primary/70 hover:text-primary">
+            <i class="fa fa-film"></i>
+          </a>
+          <a href="#letter" class="text-primary/70 hover:text-primary">
+            <i class="fa fa-heart"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 图片查看器模态框 -->
+    <div id="image-viewer" class="fixed inset-0 bg-black/80 z-50 flex items-center justify-center hidden">
+      <button id="close-viewer" class="absolute top-6 right-6 text-white text-3xl hover:text-primary transition-colors">
+        <i class="fa fa-times"></i>
+      </button>
+      <div class="max-w-6xl w-full max-h-[90vh] overflow-hidden">
+        <img id="viewed-image" src="" alt="查看的图片" class="w-full h-auto max-h-[90vh] object-contain">
+      </div>
+    </div>
+
+    <script>
+      // 导航栏滚动效果
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar.classList.add('py-2', 'shadow-lg', 'bg-white/90');
+          navbar.classList.remove('py-3', 'bg-white/70', 'shadow-md');
+        } else {
+          navbar.classList.add('py-3', 'bg-white/70', 'shadow-md');
+          navbar.classList.remove('py-2', 'shadow-lg', 'bg-white/90');
+        }
+      });
+
+      // 平滑滚动
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+      // 导航按钮高亮
+      const navBtns = document.querySelectorAll('.nav-btn');
+      const sections = document.querySelectorAll('section');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop - 100;
+          const sectionHeight = section.clientHeight;
+
+          if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navBtns.forEach(btn => {
+          btn.classList.remove('bg-primary/20', 'text-primary');
+          btn.classList.add('text-gray-600');
+
+          if (btn.id === `nav-${current}`) {
+            btn.classList.add('bg-primary/20', 'text-primary');
+            btn.classList.remove('text-gray-600');
+          }
+        });
+      });
+
+      // 生成美食相册
+      const foodGallery = document.querySelector('#food .grid');
+      for (let i = 1; i <= 15; i++) {
+        const imgPath = `./images/eatbaby/${i}.jpg`;
+        const imgAlt = `美食照片 ${i}`;
+
+        const foodCard = document.createElement('div');
+        foodCard.className = 'group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1';
+        foodCard.innerHTML = `
+          <div class="aspect-square bg-gray-100">
+            <img src="${imgPath}" alt="${imgAlt}"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div class="p-4">
+              <h3 class="text-white font-bold">美食 ${i}</h3>
+              <p class="text-white/80 text-sm">黄诗雨的美食分享</p>
+            </div>
+          </div>
+        `;
+
+        foodGallery.appendChild(foodCard);
+
+        // 添加点击事件
+        foodCard.addEventListener('click', () => {
+          openImageViewer(imgPath);
+        });
+      }
+
+      // 生成生活相册
+      const photoGallery = document.querySelector('#photo .grid');
+      for (let i = 1; i <= 20; i++) {
+        const imgPath = `./images/class/photo${i}.jpg`;
+        const imgAlt = `生活照片 ${i}`;
+
+        const photoCard = document.createElement('div');
+        photoCard.className = 'group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1';
+        photoCard.innerHTML = `
+          <div class="aspect-square bg-gray-100">
+            <img src="${imgPath}" alt="${imgAlt}"
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+            <div class="p-4">
+              <h3 class="text-white font-bold">生活 ${i}</h3>
+              <p class="text-white/80 text-sm">黄诗雨的生活瞬间</p>
+            </div>
+          </div>
+        `;
+
+        photoGallery.appendChild(photoCard);
+
+        // 添加点击事件
+        photoCard.addEventListener('click', () => {
+          openImageViewer(imgPath);
+        });
+      }
+
+      // 图片查看器
+      const imageViewer = document.getElementById('image-viewer');
+      const viewedImage = document.getElementById('viewed-image');
+      const closeViewer = document.getElementById('close-viewer');
+
+      function openImageViewer(imgPath) {
+        viewedImage.src = imgPath;
+        imageViewer.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+
+      closeViewer.addEventListener('click', () => {
+        imageViewer.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      });
+
+      imageViewer.addEventListener('click', (e) => {
+        if (e.target === imageViewer) {
+          imageViewer.classList.add('hidden');
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      // 视频加载错误处理
+      const childhoodVideo = document.getElementById('childhood-video');
+      childhoodVideo.addEventListener('error', () => {
+        console.error('视频加载失败');
+        // 这里可以添加视频加载失败的提示信息
+      });
+    </script>
+  </body>
+  </html>
